@@ -1,51 +1,50 @@
-# Prototype
-🛒 TechShop - Simulasi E-Commerce & Pembayaran QRIS
-Proyek ini adalah sebuah halaman web statis sederhana yang mensimulasikan antarmuka toko online (e-commerce). Dibuat sebagai bagian dari "Tugas Dasar Sistem Informasi", web ini dilengkapi dengan fitur keranjang belanja interaktif dan generator kode QR untuk simulasi checkout menggunakan QRIS.
+🛒 Halo! Selamat Datang di TechShop
+Ini adalah project web sederhana yang dibuat buat ngerjain tugas "Dasar Sistem Informasi". Anggap aja ini simulasi toko online mini! Di sini, kita bisa pura-pura milih barang IT, masukin ke keranjang, dan seolah-olah bayar pakai QRIS.
 
-🚀 Fitur Utama
-Katalog Produk: Menampilkan daftar barang (Monitor, Keyboard, Flashdisk) dengan desain kartu (card) yang responsif.
+🌟 Fitur Serunya Apa Aja?
+Pilih Barang (Katalog): Ada etalase simpel buat milih produk (seperti Monitor, Keyboard, Flashdisk).
 
-Keranjang Belanja Interaktif:
+Keranjang Belanja Pintar:
 
-Pengguna dapat menambahkan produk ke dalam keranjang.
+Tiap kali ngeklik tombol "+ Keranjang", angka di pojok kanan atas bakal nambah secara otomatis.
 
-Jumlah item pada tombol keranjang di bilah navigasi akan diperbarui secara otomatis.
+Kalau keranjangnya diklik, bakal muncul rincian belanjaan kita lengkap sama total harganya.
 
-Pengguna dapat melihat detail barang yang dimasukkan beserta kalkulasi total harga.
+Nggak jadi beli? Tenang, ada tombol silang (x) buat ngehapus barangnya dari keranjang.
 
-Pengguna dapat menghapus barang dari keranjang jika berubah pikiran.
+Bayar Pura-Pura Pakai QRIS: Nah, ini yang paling keren! Kalau kita klik tombol Lanjut Pembayaran, web ini bakal bikin (generate) gambar kode QR beneran, lengkap sama total tagihan dan nomor invoice acak biar kelihatan pro!
 
-Simulasi Pembayaran QRIS:
+🛠️ Dibuat Pakai Apa Aja Sih?
+Tenang, project ini nggak butuh instalasi yang ribet. Kita cuma pakai senjata dasar anak web:
 
-Menghasilkan (generate) kode QR unik secara dinamis berdasarkan total tagihan dan nomor invoice acak saat pengguna menekan tombol checkout.
+HTML: Ibarat tulang punggung web-nya. Dipakai buat naruh teks, gambar, dan kerangka tombol.
 
-Antarmuka pop-up (modal) transisi antara daftar keranjang dan halaman pembayaran QR.
+Tailwind CSS: Ini yang bikin webnya jadi cakep (warna-warni, rapi, dan pas kalau dibuka di HP atau laptop). Kita pakai versi instan (lewat internet/CDN), jadi nggak perlu repot nulis kode desain yang panjang-panjang.
 
-🛠️ Teknologi yang Digunakan
-HTML5: Sebagai struktur dasar dan kerangka antarmuka halaman web.
+JavaScript (JS): Ini "otak" webnya. JS yang bikin webnya hidup—mulai dari ngitung total harga, nambahin barang, sampai ngatur buka-tutup jendela keranjang.
 
-Tailwind CSS (via CDN): Digunakan untuk melakukan styling dan membuat tampilan web menjadi responsif (beradaptasi dari layar HP hingga Desktop) tanpa perlu menulis file CSS manual.
+QRCode.js: Ini library tambahan (bantuan kode dari luar) biar kita bisa nyulap teks biasa jadi gambar barcode QRIS dengan gampang.
 
-JavaScript (Vanilla): Mengelola logika inti aplikasi seperti array keranjang belanja (listBelanja), manipulasi DOM untuk merender keranjang, dan kontrol buka-tutup modal.
+🚀 Cara Nyobain Web Ini (Gampang Banget!)
+Kamu nggak butuh aplikasi khusus atau server segala macem buat ngejalaninnya. Cukup ikuti langkah ini:
 
-QRCode.js (via CDN): Library pihak ketiga yang digunakan untuk menggambar/mencetak kode QR secara langsung di sisi klien (client-side) pada panel pembayaran.
+Copy semua kode HTML dan JavaScript tadi.
 
-📂 Cara Menjalankan Aplikasi
-Aplikasi ini berjalan sepenuhnya di sisi klien (client-side) dan tidak memerlukan instalasi backend atau server khusus.
+Buka aplikasi semacam Notepad atau VS Code di laptop kamu.
 
-Salin seluruh kode program.
+Paste kodenya di sana, lalu Save (Simpan) dengan nama index.html (bebas namanya apa aja, yang penting belakangnya harus .html).
 
-Simpan di komputer Anda dengan nama index.html (atau nama lain berekstensi .html).
+Penting: Pastikan laptop kamu nyambung ke internet ya! (Soalnya web ini butuh narik desain Tailwind dan pembuat QR dari internet).
 
-Pastikan komputer Anda terhubung ke internet (untuk memuat Tailwind CSS dan QRCode.js dari CDN).
+Tinggal double-click (buka) file index.html yang tadi kamu buat. Nanti webnya bakal otomatis kebuka di Google Chrome atau browser kesayangan kamu!
 
-Klik ganda (buka) file .html tersebut menggunakan browser modern apapun (Google Chrome, Mozilla Firefox, Microsoft Edge, atau Safari).
+💡 Buat Maba: Gimana Sih Cara Kerjanya? (Logika Singkat)
+Buat kamu yang baru mulai belajar ngoding, ini gambaran singkat cara kerja "daleman" webnya:
 
-💡 Penjelasan Logika Singkat (Berdasarkan Kode)
-Penyimpanan Data: Seluruh barang yang diklik akan dimasukkan sebagai Object ke dalam Array global bernama listBelanja.
+Nyimpen Data Pura-Pura: Semua barang yang kamu klik bakal dimasukin ke dalam sebuah daftar (di kode, ini namanya Array listBelanja). Ibaratnya kayak masukin barang ke kantong belanjaan virtual.
 
-Pembaruan UI (Render): Fungsi refreshTampilanToko() bertugas mengosongkan elemen HTML list keranjang (innerHTML = ''), lalu melakukan looping (perulangan) pada listBelanja untuk mencetak ulang elemen <li> beserta tombol hapusnya. Ini memastikan tampilan selalu sinkron dengan data array.
+Update Layar Biar Sinkron: Tiap ada barang masuk atau dibuang dari keranjang, ada fungsi khusus (refreshTampilanToko) yang tugasnya "nyapu" isi layar sebentar, terus nulis ulang isinya dari awal. Ini dilakuin super cepat biar jumlah item dan harganya selalu akurat.
 
-Sistem Modal Pop-up: Tampilan keranjang dan QRIS membentang di atas halaman utama menggunakan teknik Overlay (z-index tinggi). Sistem buka-tutupnya hanya memanipulasi penambahan atau penghapusan class hidden bawaan Tailwind CSS pada elemen Container modal.
+Sistem Pop-up (Jendela Tiba-Tiba Muncul): Jendela keranjang yang muncul di tengah layar itu sebenernya udah ada di dalam kode sejak awal, cuma disembunyiin aja (pakai perintah hidden). Pas kamu klik tombol keranjang, perintah hidden-nya dicabut, makanya jendelanya jadi kelihatan!
 
-Pembuatan QR Code: Library qrcode.js akan mengambil elemen div ber-id areaQr, lalu menyuntikkan elemen <canvas> atau <img> yang berisi pola barcode dari teks payload (URL + Nomor Invoice + Total Harga).
+Bikin QR Code: Pas kamu klik bayar, kode JS bakal ngitung total belanjamu, bikin nomor resi acak, lalu nyuruh program pembantu (qrcode.js) buat ngegambar barcode di layar.
