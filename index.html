@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <!-- Menentukan karakter encoding agar mendukung semua teks standar -->
   <meta charset="UTF-8">
-  <!-- Pengaturan viewport agar tampilan web responsif di perangkat mobile maupun desktop -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TechShop</title>
   
-  <!-- Mengimpor framework Tailwind CSS melalui CDN untuk styling/desain web secara instan tanpa menulis file CSS terpisah -->
+  <!-- Memanggil Tailwind CSS dari internet -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Mengimpor Library pihak ketiga (qrcode.js) untuk fitur pembuatan (generate) kode QR secara dinamis -->
+  
+  <!-- Memanggil pembuat QR Code dari internet -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  
+ 
+  <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
-<!-- Body menggunakan warna background abu-abu terang (bg-gray-50) dan warna teks abu-abu gelap -->
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- Bagian Navigasi Utama (Header) -->
-  <!-- Dibuat lengket (sticky) di bagian atas layar agar tetap terlihat saat di-scroll -->
+  <!-- Header -->
   <header class="bg-blue-600 text-white p-4 shadow-md sticky top-0 z-10">
     <div class="container mx-auto flex justify-between items-center">
-      <!-- Judul / Logo Web -->
       <h1 class="text-xl font-bold">TechShop</h1>
-      <!-- Kumpulan link navigasi dan tombol keranjang -->
       <div class="flex items-center space-x-4">
         <a href="#" class="hover:underline">Beranda</a>
         <a href="#katalog" class="hover:underline">Produk</a>
-        <!-- Tombol Keranjang: Saat diklik akan memicu fungsi JavaScript bukaKantung() -->
-        <!-- Menampilkan total item dinamis yang akan diupdate oleh JavaScript pada span ber-ID 'totalItem' -->
         <button onclick="bukaKantung()" class="bg-white text-blue-600 px-3 py-1 rounded-full font-semibold text-sm hover:bg-gray-100 flex items-center gap-1">
           🛒 Keranjang (<span id="totalItem">0</span>)
         </button>
@@ -34,30 +30,25 @@
     </div>
   </header>
 
-  <!-- Banner Pembuka -->
-  <!-- Menampilkan teks sambutan (Hero Section) untuk menarik perhatian pengunjung -->
+  <!-- Banner -->
   <section class="bg-blue-50 py-12 text-center border-b">
     <h2 class="text-3xl font-extrabold mb-2">Selamat Datang di TechShop</h2>
     <p class="text-gray-600">Temukan barang kebutuhan Komputer dan Hp di TechShop!</p>
   </section>
 
-  <!-- Etalase Produk -->
-  <!-- Container utama yang membungkus semua kartu produk (Grid layout digunakan di sini) -->
+  <!-- Daftar Produk -->
   <main class="container mx-auto py-10 px-4" id="katalog">
     <h3 class="text-2xl font-bold mb-6 text-center">Daftar Produk</h3>
-
-    <!-- Menggunakan sistem Grid Tailwind: 1 kolom di HP, 2 kolom di tablet (sm), dan 3 kolom di desktop (md) -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       
-      <!-- Kartu Produk 1: Monitor -->
+      <!-- Produk 1 -->
       <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-        <img src="https://placeholder.com" alt="Monitor" class="w-full h-48 object-cover">
+        <img src="https://placehold.co/400x300?text=Monitor" alt="Monitor" class="w-full h-48 object-cover">
         <div class="p-4">
           <h4 class="font-bold text-lg mb-1">Monitor</h4>
           <p class="text-gray-500 text-sm mb-3">Monitor LED 24 inci dengan resolusi HD.</p>
           <div class="flex justify-between items-center">
             <span class="text-blue-600 font-bold">Rp 1.500.000</span>
-            <!-- Tombol untuk menambahkan barang ke keranjang beserta parameter nama dan harganya -->
             <button onclick="beliBarang('Monitor', 1500000)" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm">
               + Keranjang
             </button>
@@ -65,15 +56,14 @@
         </div>
       </div>
 
-      <!-- Kartu Produk 2: Keyboard -->
+      <!-- Produk 2 -->
       <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-        <img src="https://placeholder.com" alt="Keyboard" class="w-full h-48 object-cover">
+        <img src="https://placehold.co/400x300?text=Keyboard" alt="Keyboard" class="w-full h-48 object-cover">
         <div class="p-4">
           <h4 class="font-bold text-lg mb-1">Keyboard</h4>
           <p class="text-gray-500 text-sm mb-3">Keyboard mekanik dengan respons cepat.</p>
           <div class="flex justify-between items-center">
             <span class="text-blue-600 font-bold">Rp 500.000</span>
-            <!-- Tombol untuk menambahkan barang ke keranjang beserta parameter nama dan harganya -->
             <button onclick="beliBarang('Keyboard', 500000)" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm">
               + Keranjang
             </button>
@@ -81,15 +71,14 @@
         </div>
       </div>
 
-      <!-- Kartu Produk 3: Flashdisk -->
+      <!-- Produk 3 -->
       <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-        <img src="https://placeholder.com" alt="Flashdisk" class="w-full h-48 object-cover">
+        <img src="https://placehold.co/400x300?text=Flashdisk" alt="Flashdisk" class="w-full h-48 object-cover">
         <div class="p-4">
           <h4 class="font-bold text-lg mb-1">Flashdisk 32GB</h4>
           <p class="text-gray-500 text-sm mb-3">Penyimpanan praktis untuk simpan file tugas.</p>
           <div class="flex justify-between items-center">
             <span class="text-blue-600 font-bold">Rp 65.000</span>
-            <!-- Tombol untuk menambahkan barang ke keranjang beserta parameter nama dan harganya -->
             <button onclick="beliBarang('Flashdisk 32GB', 65000)" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 text-sm">
               + Keranjang
             </button>
@@ -100,206 +89,50 @@
     </div>
   </main>
 
-  <!-- Pop-up Area (Modal Transaksi) -->
-  <!-- Secara default disembunyikan menggunakan class 'hidden'. Tampilannya berupa overlay hitam transparan menutupi layar (fixed inset-0 bg-black bg-opacity-50) -->
+  <!-- Jendela Pop-up Modal -->
   <div id="boxKeranjang" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center z-50 p-4">
     <div class="bg-white rounded-lg w-full max-w-md p-6 shadow-xl relative">
-      
-      <!-- Tombol Silang (X) untuk Menutup Modal -->
       <button onclick="tutupKantung()" class="absolute top-3 right-3 text-gray-500 hover:text-black font-bold text-xl">&times;</button>
       
-      <!-- Panel 1: List Daftar Belanjaan -->
-      <!-- Menampilkan daftar barang yang telah dimasukkan ke keranjang -->
+      <!-- Panel Belanja -->
       <div id="panelList">
         <h3 class="text-xl font-bold mb-4 text-gray-800">🛒 Keranjang Belanja</h3>
-        <!-- Elemen <ul> ini kosong secara default, nantinya akan diisi secara dinamis (di-inject) oleh JavaScript -->
-        <ul id="isiKantung" class="divide-y divide-gray-200 mb-4 max-h-48 overflow-y-auto">
-          <!-- Item belanjaan akan masuk secara dinamis di sini -->
-        </ul>
-        
-        <!-- Menampilkan total keseluruhan harga -->
+        <ul id="isiKantung" class="divide-y divide-gray-200 mb-4 max-h-48 overflow-y-auto"></ul>
         <div class="border-t pt-3 flex justify-between font-bold text-lg text-gray-800">
           <span>Total:</span>
           <span id="angkaTotal">Rp 0</span>
         </div>
-
-        <!-- Tombol untuk beralih ke panel pembayaran QRIS (Awalnya disembunyikan 'hidden' jika keranjang kosong) -->
         <button onclick="prosesKeBayar()" id="tombolCheckout" class="w-full bg-blue-600 text-white py-2 mt-5 rounded-lg hover:bg-blue-700 font-semibold transition hidden">
           Lanjut Pembayaran QRIS
         </button>
       </div>
 
-      <!-- Panel 2: Tampilan Kode QRIS -->
-      <!-- Awalnya disembunyikan. Akan muncul setelah user klik tombol "Lanjut Pembayaran QRIS" -->
+      <!-- Panel QRIS -->
       <div id="panelQris" class="hidden text-center">
         <h3 class="text-xl font-bold mb-1 text-gray-800">Pembayaran QRIS</h3>
         <p class="text-sm text-gray-500 mb-3">Scan kode di bawah menggunakan e-Wallet atau M-Banking</p>
-
-        <!-- Wadah/Container tempat dimana Barcode/QR Code akan dirender/digambar oleh library qrcode.js -->
         <div class="flex justify-center my-4">
           <div id="areaQr" class="p-3 border rounded-lg bg-white shadow-inner"></div>
         </div>
-
-        <!-- Menampilkan kembali total tagihan yang harus dibayar -->
         <div class="bg-blue-50 p-3 rounded-lg mb-4">
           <p class="text-xs text-gray-500">Total Tagihan</p>
           <p id="tagihanQris" class="text-xl font-bold text-blue-600">Rp 0</p>
         </div>
-
-        <!-- Tombol konfirmasi penyelesaian pembayaran -->
         <button onclick="prosesSelesai()" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 font-semibold transition mb-2">
           Saya Sudah Bayar
         </button>
-        <!-- Tombol untuk membatalkan pembayaran dan kembali ke daftar belanjaan (Panel 1) -->
         <button onclick="balikKeList()" class="w-full bg-gray-200 text-gray-700 py-2 rounded-lg hover:bg-gray-300 font-semibold text-sm">
           Kembali
         </button>
       </div>
-
     </div>
   </div>
 
-  <!-- Catatan Kaki (Footer) -->
   <footer class="bg-gray-800 text-white text-center py-4 mt-10">
     <p class="text-sm">&copy; 2026 TechShop - Dibuat untuk Tugas Dasar Sistem Informasi</p>
   </footer>
 
-  <!-- Sistem Inti JavaScript -->
-  <script>
-    // Variabel Global
-    let listBelanja = []; // Array (daftar) untuk menyimpan semua objek barang yang dimasukkan ke keranjang
-    let qrEngine = null;  // Tempat menyimpan instance library QRCode agar bisa dikontrol (direset/dibuat ulang) nanti
-
-    // FUNGSI: Menambah barang baru ke array belanjaan
-    // Dipanggil saat tombol "+ Keranjang" di etalase produk diklik
-    function beliBarang(namaItem, hargaItem) {
-      // Menyimpan barang baru dalam bentuk objek (nama dan harga) ke array listBelanja
-      listBelanja.push({ nama: namaItem, harga: hargaItem });
-      // Memperbarui UI keranjang agar data terupdate
-      refreshTampilanToko();
-      // Menampilkan notifikasi popup (alert) kepada pengguna
-      alert(`Berhasil menambahkan ${namaItem} ke keranjang!`);
-    }
-
-    // FUNGSI: Mengatur ulang dan merender antarmuka keranjang belanja di dalam HTML
-    function refreshTampilanToko() {
-      // Update angka notifikasi di tombol keranjang navigasi header
-      document.getElementById('totalItem').innerText = listBelanja.length;
-      
-      // Mengambil referensi elemen HTML yang akan dimanipulasi
-      const kontainerList = document.getElementById('isiKantung');
-      const textTotal = document.getElementById('angkaTotal');
-      const btnPay = document.getElementById('tombolCheckout');
-      
-      // Mengosongkan daftar tampilan HTML keranjang sebelumnya sebelum dirender ulang
-      kontainerList.innerHTML = '';
-      let kalkulasiTotal = 0; // Variabel bantu untuk menjumlahkan total harga
-
-      // Logika jika keranjang kosong
-      if (listBelanja.length === 0) {
-        kontainerList.innerHTML = '<li class="py-4 text-center text-gray-400">Keranjang masih kosong.</li>';
-        btnPay.classList.add('hidden'); // Sembunyikan tombol checkout
-      } else {
-        // Logika jika keranjang ada isinya: Looping (Ulangi) setiap barang yang ada di array
-        listBelanja.forEach((item, urutan) => {
-          // Tambahkan harga item ke total keseluruhan
-          kalkulasiTotal += item.harga;
-          // Menyisipkan HTML (Element ListItem/li) ke dalam kontainerList beserta data dinamisnya
-          kontainerList.innerHTML += `
-            <li class="py-2 flex justify-between items-center text-sm">
-              <span>${item.nama}</span>
-              <div class="flex items-center gap-2">
-                <span class="font-semibold">Rp ${item.harga.toLocaleString('id-ID')}</span>
-                <!-- Tombol silang untuk menghapus item spesifik berdasarkan urutan indeksnya (urutan) -->
-                <button onclick="buangItem(${urutan})" class="text-red-500 hover:text-red-700 font-bold">&times;</button>
-              </div>
-            </li>
-          `;
-        });
-        // Tampilkan tombol checkout karena keranjang memiliki isi
-        btnPay.classList.remove('hidden');
-      }
-
-      // Memperbarui tampilan angka total menggunakan format mata uang Indonesia
-      textTotal.innerText = `Rp ${kalkulasiTotal.toLocaleString('id-ID')}`;
-    }
-
-    // FUNGSI: Mengeluarkan (menghapus) barang dari array list belanjaan
-    // Dipanggil saat tombol silang (x) di sebelah item belanja diklik
-    function buangItem(urutan) {
-      // Fungsi .splice() untuk menghapus 1 data array berdasarkan nomor indeks (urutan)
-      listBelanja.splice(urutan, 1);
-      // Panggil ulang render UI untuk merefleksikan perubahan bahwa barang telah dihapus
-      refreshTampilanToko();
-    }
-
-    // FUNGSI: Manajemen Buka Tutup Panel Modal
-    // Menghapus class 'hidden' sehingga Modal akan terlihat (muncul di layar)
-    function bukaKantung() {
-      document.getElementById('boxKeranjang').classList.remove('hidden');
-    }
-
-    // Menambah class 'hidden' sehingga Modal akan hilang dari layar
-    function tutupKantung() {
-      document.getElementById('boxKeranjang').classList.add('hidden');
-      // Memastikan saat dibuka lagi nanti, modal berada pada halaman list belanja, bukan halaman QRIS
-      balikKeList();
-    }
-
-    // FUNGSI: Mengalihkan panel keranjang ke panel generator QRIS & Generate Kode QR
-    function prosesKeBayar() {
-      // 1. Hitung total uang kembali menggunakan perulangan for
-      let hitungTotal = 0;
-      for (let i = 0; i < listBelanja.length; i++) {
-        hitungTotal += listBelanja[i].harga;
-      }
-      
-      // 2. Setel nilai tagihan untuk ditampilkan pada Panel QRIS
-      document.getElementById('tagihanQris').innerText = `Rp ${hitungTotal.toLocaleString('id-ID')}`;
-
-      // 3. Modifikasi class untuk menyembunyikan panel List Belanja dan memunculkan panel QRIS
-      document.getElementById('panelList').classList.add('hidden');
-      document.getElementById('panelQris').classList.remove('hidden');
-
-      // 4. Siapkan tempat untuk QR Code (Kosongkan dulu jika ada qr code transaksi sebelumnya)
-      const areaQr = document.getElementById('areaQr');
-      areaQr.innerHTML = ''; 
-
-      // 5. Format string (data text) transaksi yang unik dan dinamis sebagai payload
-      // Membuat nomor invoice acak (random) 6 digit
-      let nomorInvoice = 'INV-' + Math.floor(Math.random() * 900000 + 100000);
-      // Payload (isi data) yang akan diubah menjadi gambar kode QR
-      let payloadQris = `https://techshop.id{nomorInvoice}?total=${hitungTotal}`;
-      
-      // 6. Mengeksekusi Library QRCode untuk mengubah data teks (payload) menjadi gambar Barcode/QR
-      qrEngine = new QRCode(areaQr, {
-        text: payloadQris,
-        width: 175,  // Lebar gambar (piksel)
-        height: 175, // Tinggi gambar (piksel)
-        colorDark: "#1e3a8a", // Custom warna biru gelap untuk bagian barcode (agar tidak hitam standar)
-        colorLight: "#ffffff" // Background putih
-      });
-    }
-
-    // FUNGSI: Mengalihkan tampilan dari Panel QRIS kembali ke panel list belanja
-    function balikKeList() {
-      // Sembunyikan panel QRIS
-      document.getElementById('panelQris').classList.add('hidden');
-      // Munculkan kembali Panel daftar belanja
-      document.getElementById('panelList').classList.remove('hidden');
-    }
-
-    // FUNGSI: Reset sistem saat checkout diklaim selesai oleh pengguna
-    function prosesSelesai() {
-      // Munculkan notifikasi sukses
-      alert('Sip! Pembayaran kamu bakal langsung dicek sama sistem.');
-      // Bersihkan/Kosongkan seluruh data keranjang
-      listBelanja = [];
-      // Perbarui tampilan agar semuanya menjadi 0 kembali
-      refreshTampilanToko();
-      // Tutup otomatis popup modal
-      tutupKantung();
-    }
-  </script>
+  <!-- INI DIA! Kita memanggil file JS dari luar -->
+  <script src="script.js"></script>
 </body>
 </html>
